@@ -84,15 +84,22 @@ rm -rf "$TARGET/.carl/overlays"
 
 # ---- Replace placeholders in CLAUDE.md ----
 TODAY="$(date +%Y-%m-%d)"
-sed -i '' "s|\[CLIENT_NAME\]|$CLIENT|g" "$TARGET/CLAUDE.md"
-sed -i '' "s|\[DATE\]|$TODAY|g" "$TARGET/CLAUDE.md"
-sed -i '' "s|\[TECH_STACK\]|$TECH_NAME|g" "$TARGET/CLAUDE.md"
+# Cross-platform sed -i: BSD needs '' after -i, GNU does not
+if sed --version >/dev/null 2>&1; then
+    SED_INPLACE=(-i)
+else
+    SED_INPLACE=(-i '')
+fi
+
+sed "${SED_INPLACE[@]}" "s|\[CLIENT_NAME\]|$CLIENT|g" "$TARGET/CLAUDE.md"
+sed "${SED_INPLACE[@]}" "s|\[DATE\]|$TODAY|g" "$TARGET/CLAUDE.md"
+sed "${SED_INPLACE[@]}" "s|\[TECH_STACK\]|$TECH_NAME|g" "$TARGET/CLAUDE.md"
 
 # Also replace in templates
 for tpl in "$TARGET"/templates/*.md; do
-    sed -i '' "s|\[CLIENT_NAME\]|$CLIENT|g" "$tpl"
-    sed -i '' "s|\[DATE\]|$TODAY|g" "$tpl"
-    sed -i '' "s|\[TECH_STACK\]|$TECH_NAME|g" "$tpl"
+    sed "${SED_INPLACE[@]}" "s|\[CLIENT_NAME\]|$CLIENT|g" "$tpl"
+    sed "${SED_INPLACE[@]}" "s|\[DATE\]|$TODAY|g" "$tpl"
+    sed "${SED_INPLACE[@]}" "s|\[TECH_STACK\]|$TECH_NAME|g" "$tpl"
 done
 
 # ---- Initialize git ----
