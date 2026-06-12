@@ -1,0 +1,880 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Index for jit-load / skill-scoring hook. Maps keywords/extensions/paths to skill SKILL.md files. Hook reads this and surfaces high-scoring skills via UserPromptSubmit additionalContext or Skill-tool autocomplete. Mirrors rules/_index.json scoring model.",
+  "scoring": {
+    "keyword_match": 2,
+    "marker_file_match": 3,
+    "extension_match": 1,
+    "path_match": 1,
+    "min_score_to_surface": 2,
+    "max_skills_surfaced": 3
+  },
+  "skills": [
+    {
+      "file": "adapt/SKILL.md",
+      "label": "Adapt — responsive/cross-platform",
+      "category": "design",
+      "keywords": [
+        "responsive",
+        "breakpoint",
+        "mobile",
+        "tablet",
+        "desktop",
+        "fluid",
+        "viewport",
+        "touch target",
+        "cross-platform",
+        "adapt"
+      ],
+      "extensions": [".tsx", ".jsx", ".vue", ".svelte", ".css", ".scss"],
+      "paths": []
+    },
+    {
+      "file": "am-i-done/SKILL.md",
+      "label": "Am-I-Done — final verification",
+      "category": "gate",
+      "keywords": [
+        "am i done",
+        "ship it",
+        "final check",
+        "done",
+        "ready to merge",
+        "ready to ship",
+        "phase complete",
+        "acceptance criteria"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "animate/SKILL.md",
+      "label": "Animate — motion patterns",
+      "category": "design",
+      "keywords": [
+        "animate",
+        "animation",
+        "transition",
+        "framer motion",
+        "motion",
+        "hover effect",
+        "page transition",
+        "modal animation",
+        "scroll animation"
+      ],
+      "extensions": [".tsx", ".jsx"],
+      "paths": []
+    },
+    {
+      "file": "audit/SKILL.md",
+      "label": "Audit — quality scan",
+      "category": "qa",
+      "keywords": [
+        "audit",
+        "quality check",
+        "a11y",
+        "accessibility",
+        "perf audit",
+        "anti-pattern",
+        "scored report",
+        "p0 p1 p2 p3",
+        "lighthouse"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "bolder/SKILL.md",
+      "label": "Bolder — amplify visual impact",
+      "category": "design",
+      "keywords": [
+        "bolder",
+        "more impactful",
+        "bland",
+        "boring",
+        "generic",
+        "looks safe",
+        "needs more"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "clarify/SKILL.md",
+      "label": "Clarify — UX copy / microcopy",
+      "category": "design",
+      "keywords": [
+        "clarify",
+        "copy",
+        "microcopy",
+        "error message",
+        "label",
+        "instructions",
+        "confusing text",
+        "rewrite text"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "claude-vault/SKILL.md",
+      "label": "Claude Vault — credentials",
+      "category": "security",
+      "keywords": [
+        "vault",
+        "credential",
+        "credentials",
+        "secret",
+        "secrets",
+        "api key",
+        "token",
+        "password",
+        "pat",
+        "oauth",
+        "bearer",
+        "totp",
+        "2fa",
+        ".env"
+      ],
+      "extensions": [".env"],
+      "files": [".env", ".env.local", ".env.production", "secrets.json", "credentials.json"]
+    },
+    {
+      "file": "colorize/SKILL.md",
+      "label": "Colorize — strategic color",
+      "category": "design",
+      "keywords": [
+        "colorize",
+        "monochromatic",
+        "gray",
+        "dull",
+        "lacks color",
+        "more color",
+        "needs color"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "critique/SKILL.md",
+      "label": "Critique — UX scoring",
+      "category": "design",
+      "keywords": [
+        "critique",
+        "design review",
+        "ux review",
+        "visual hierarchy",
+        "cognitive load",
+        "design score",
+        "persona feedback"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "delight/SKILL.md",
+      "label": "Delight — joy + personality",
+      "category": "design",
+      "keywords": [
+        "delight",
+        "polish ui",
+        "personality",
+        "fun",
+        "easter egg",
+        "memorable",
+        "make it nice"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "diagnose/SKILL.md",
+      "label": "Diagnose — incident response",
+      "category": "ops",
+      "keywords": [
+        "diagnose",
+        "sentry",
+        "incident",
+        "production error",
+        "stack trace",
+        "root cause",
+        "draft pr",
+        "fix branch",
+        "triage"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "distill/SKILL.md",
+      "label": "Distill — simplify",
+      "category": "design",
+      "keywords": [
+        "distill",
+        "simplify",
+        "declutter",
+        "reduce noise",
+        "remove elements",
+        "too busy",
+        "clean up"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "ezra/SKILL.md",
+      "label": "EZRA — governance framework",
+      "category": "governance",
+      "keywords": [
+        "ezra",
+        "governance",
+        "drift detection",
+        "architectural decision",
+        "adr",
+        "compliance",
+        "code review",
+        "scribe"
+      ],
+      "extensions": [],
+      "files": [".ezra/", "ezra.config.js", "ezra.config.ts"],
+      "paths": [".ezra/"]
+    },
+    {
+      "file": "harden/SKILL.md",
+      "label": "Harden — production-ready",
+      "category": "qa",
+      "keywords": [
+        "harden",
+        "production ready",
+        "error handling",
+        "empty state",
+        "edge case",
+        "i18n",
+        "text overflow",
+        "onboarding",
+        "robust"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "impeccable/SKILL.md",
+      "label": "Impeccable — distinctive frontend",
+      "category": "design",
+      "keywords": [
+        "impeccable",
+        "distinctive",
+        "high quality ui",
+        "creative ui",
+        "non-generic",
+        "polished frontend",
+        "build website",
+        "build landing"
+      ],
+      "extensions": [".tsx", ".jsx"],
+      "paths": []
+    },
+    {
+      "file": "jit-load/SKILL.md",
+      "label": "JIT-Load — bulk MCP load",
+      "category": "meta",
+      "keywords": [
+        "jit-load",
+        "load mcp",
+        "load tools",
+        "tool bundle",
+        "load secrets stack",
+        "load db stack",
+        "toolsearch"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "llm-council/SKILL.md",
+      "label": "LLM Council — multi-agent decision",
+      "category": "meta",
+      "keywords": [
+        "should i",
+        "best approach",
+        "which framework",
+        "which library",
+        "decide",
+        "council",
+        "consensus",
+        "second opinion",
+        "multiple agents",
+        "trade-off",
+        "trade off",
+        "tradeoff",
+        "architecture decision",
+        "tech choice",
+        "plan approval"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "knowledge-graph-cli/SKILL.md",
+      "label": "KG CLI — index/analyze repos",
+      "category": "kg",
+      "keywords": [
+        "knowledge graph",
+        "kg-cli",
+        "index repo",
+        "analyze repo",
+        "wiki",
+        "indexed repos",
+        "graph status"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "knowledge-graph-debugging/SKILL.md",
+      "label": "KG Debugging — trace bugs",
+      "category": "kg",
+      "keywords": [
+        "why is failing",
+        "trace bug",
+        "where error",
+        "trace error",
+        "debug via graph",
+        "knowledge graph debug"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "knowledge-graph-exploring/SKILL.md",
+      "label": "KG Exploring — codebase walk",
+      "category": "kg",
+      "keywords": [
+        "how does",
+        "what calls",
+        "explore codebase",
+        "trace flow",
+        "architecture trace",
+        "unfamiliar code"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "knowledge-graph-guide/SKILL.md",
+      "label": "KG Guide — graph reference",
+      "category": "kg",
+      "keywords": [
+        "knowledge graph schema",
+        "kg tools",
+        "kg resources",
+        "graph workflow",
+        "what knowledge-graph"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "knowledge-graph-impact-analysis/SKILL.md",
+      "label": "KG Impact — blast radius",
+      "category": "kg",
+      "keywords": [
+        "safe to change",
+        "what depends on",
+        "blast radius",
+        "impact analysis",
+        "what will break",
+        "before refactor"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "knowledge-graph-pr-review/SKILL.md",
+      "label": "KG PR Review",
+      "category": "kg",
+      "keywords": [
+        "review pr via graph",
+        "pr risk",
+        "pr coverage",
+        "pr changes graph",
+        "kg pr review"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "knowledge-graph-refactoring/SKILL.md",
+      "label": "KG Refactoring — safe rename/extract",
+      "category": "kg",
+      "keywords": [
+        "rename function",
+        "extract module",
+        "split file",
+        "move code",
+        "safe refactor",
+        "restructure"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "layout/SKILL.md",
+      "label": "Layout — spacing + rhythm",
+      "category": "design",
+      "keywords": [
+        "layout",
+        "spacing",
+        "alignment",
+        "visual rhythm",
+        "grid",
+        "spacing issues",
+        "visual hierarchy"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "optimize/SKILL.md",
+      "label": "Optimize — UI perf",
+      "category": "perf",
+      "keywords": [
+        "optimize",
+        "slow",
+        "laggy",
+        "janky",
+        "performance",
+        "bundle size",
+        "load time",
+        "render perf",
+        "lighthouse score"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "overdrive/SKILL.md",
+      "label": "Overdrive — wow factor",
+      "category": "design",
+      "keywords": [
+        "overdrive",
+        "wow",
+        "ambitious",
+        "shader",
+        "spring physics",
+        "scroll-driven",
+        "60fps",
+        "next-level"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "phase-gate/SKILL.md",
+      "label": "Phase-Gate — 100% check",
+      "category": "gate",
+      "keywords": [
+        "phase gate",
+        "100% gate",
+        "gap analysis",
+        "full test",
+        "go no-go",
+        "phase complete",
+        "advance phase"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "polish/SKILL.md",
+      "label": "Polish — pre-launch pass",
+      "category": "design",
+      "keywords": [
+        "polish",
+        "finishing touches",
+        "pre-launch",
+        "soften edges",
+        "tighten ui",
+        "consistency pass"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "python-project-creator/SKILL.md",
+      "label": "Python project scaffolder",
+      "category": "scaffold",
+      "keywords": [
+        "new python project",
+        "scaffold python",
+        "python project",
+        "uv venv",
+        "pyproject"
+      ],
+      "extensions": [".py"],
+      "files": ["pyproject.toml", ".python-version"]
+    },
+    {
+      "file": "quieter/SKILL.md",
+      "label": "Quieter — tone down",
+      "category": "design",
+      "keywords": [
+        "quieter",
+        "too bold",
+        "too loud",
+        "overwhelming",
+        "aggressive",
+        "garish",
+        "tone down"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "reflect/SKILL.md",
+      "label": "Reflect — learnings → memory",
+      "category": "meta",
+      "keywords": [
+        "reflect",
+        "lesson learned",
+        "learning",
+        "promote rule",
+        "session correction",
+        "remember this"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "shape/SKILL.md",
+      "label": "Shape — UX/UI plan",
+      "category": "plan",
+      "keywords": [
+        "shape",
+        "design brief",
+        "feature plan",
+        "ux plan",
+        "discovery interview",
+        "before code"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "spec/SKILL.md",
+      "label": "Spec — Kiro-style spec-driven dev",
+      "category": "plan",
+      "keywords": [
+        "spec",
+        "spec-driven",
+        "kiro",
+        "requirements.md",
+        "design.md",
+        "tasks.md",
+        "ears notation",
+        "i want",
+        "let's build"
+      ],
+      "extensions": [],
+      "paths": [".specs/", "docs/specs/"]
+    },
+    {
+      "file": "typeset/SKILL.md",
+      "label": "Typeset — typography",
+      "category": "design",
+      "keywords": [
+        "typeset",
+        "typography",
+        "font",
+        "text hierarchy",
+        "readability",
+        "text size",
+        "font weight"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "9router/SKILL.md",
+      "label": "Entry point for 9Router — local/remote AI gateway with OpenAI-compatible REST fo",
+      "category": "infra",
+      "keywords": ["9router", "router", "proxy", "provider", "openai"],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "9router-chat/SKILL.md",
+      "label": "Chat / code generation via 9Router using OpenAI /v1/chat/completions or Anthropi",
+      "category": "infra",
+      "keywords": [
+        "9router-chat",
+        "9router",
+        "router",
+        "proxy",
+        "provider",
+        "openai",
+        "chat",
+        "completion",
+        "generate"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "9router-embeddings/SKILL.md",
+      "label": "Generate vector embeddings via 9Router /v1/embeddings using OpenAI / Gemini / Mi",
+      "category": "infra",
+      "keywords": [
+        "9router-embeddings",
+        "9router",
+        "router",
+        "proxy",
+        "provider",
+        "openai",
+        "embedding",
+        "vector",
+        "embed"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "9router-image/SKILL.md",
+      "label": "Generate images via 9Router /v1/images/generations using OpenAI / Gemini Imagen ",
+      "category": "infra",
+      "keywords": [
+        "9router-image",
+        "9router",
+        "router",
+        "proxy",
+        "provider",
+        "openai",
+        "image",
+        "generate image",
+        "dall-e"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "9router-stt/SKILL.md",
+      "label": "Speech-to-text via 9Router /v1/audio/transcriptions using OpenAI Whisper / Groq ",
+      "category": "infra",
+      "keywords": [
+        "9router-stt",
+        "9router",
+        "router",
+        "proxy",
+        "provider",
+        "openai",
+        "speech",
+        "transcribe",
+        "audio",
+        "whisper"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "9router-tts/SKILL.md",
+      "label": "Text-to-speech via 9Router /v1/audio/speech using OpenAI / ElevenLabs / Deepgram",
+      "category": "infra",
+      "keywords": [
+        "9router-tts",
+        "9router",
+        "router",
+        "proxy",
+        "provider",
+        "openai",
+        "speech",
+        "voice",
+        "audio",
+        "tts"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "9router-web-fetch/SKILL.md",
+      "label": "Fetch URL → markdown / text / HTML via 9Router /v1/web/fetch using Firecrawl / J",
+      "category": "infra",
+      "keywords": [
+        "9router-web-fetch",
+        "9router",
+        "router",
+        "proxy",
+        "provider",
+        "openai",
+        "fetch",
+        "url",
+        "scrape",
+        "web"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "9router-web-search/SKILL.md",
+      "label": "Web search via 9Router /v1/search using Tavily / Exa / Brave / Serper / SearXNG ",
+      "category": "infra",
+      "keywords": [
+        "9router-web-search",
+        "9router",
+        "router",
+        "proxy",
+        "provider",
+        "openai",
+        "search",
+        "web search",
+        "tavily"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "build/SKILL.md",
+      "label": "Fully automated spec-driven development pipeline. Subcommands: /build <brief>, /",
+      "category": "dev",
+      "keywords": [
+        "build",
+        "pipeline",
+        "spec",
+        "tdd",
+        "executor",
+        "critic",
+        "dry-run",
+        "phase-gate",
+        "feature"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "fix-issue/SKILL.md",
+      "label": "Fix a GitHub issue by number. Reads the issue, implements the fix, writes tests,",
+      "category": "dev",
+      "keywords": ["fix-issue", "fix", "issue", "bug", "error", "broken", "debug"],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "paseo/SKILL.md",
+      "label": "Paseo reference for managing agents and worktrees. Load whenever you need to cre",
+      "category": "platform",
+      "keywords": ["paseo", "daemon", "frontend", "start", "deploy", "service"],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "paseo-advisor/SKILL.md",
+      "label": "Spin up a single agent as an advisor — second opinion on the current task. Use w",
+      "category": "platform",
+      "keywords": ["paseo-advisor", "paseo", "daemon", "frontend", "advisor", "review", "feedback"],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "paseo-committee/SKILL.md",
+      "label": "Form a committee of two high-reasoning agents to step back, do root cause analys",
+      "category": "platform",
+      "keywords": [
+        "paseo-committee",
+        "paseo",
+        "daemon",
+        "frontend",
+        "committee",
+        "decision",
+        "consensus"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "paseo-epic/SKILL.md",
+      "label": "Heavy-ceremony orchestration for big work — research, planning, adversarial revi",
+      "category": "platform",
+      "keywords": [
+        "paseo-epic",
+        "paseo",
+        "daemon",
+        "frontend",
+        "epic",
+        "large feature",
+        "multi-task"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "paseo-handoff/SKILL.md",
+      "label": "Hand off the current task to another agent with full context. Use when the user ",
+      "category": "platform",
+      "keywords": [
+        "paseo-handoff",
+        "paseo",
+        "daemon",
+        "frontend",
+        "handoff",
+        "delegate",
+        "transfer"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "paseo-loop/SKILL.md",
+      "label": "Run an agent loop until an exit condition is met. Use when the user says \"loop\",",
+      "category": "platform",
+      "keywords": ["paseo-loop", "paseo", "daemon", "frontend", "loop", "iterate", "continuous"],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "paseo-orchestrate/SKILL.md",
+      "label": "Deprecated. Renamed to paseo-epic. Loading this skill redirects to paseo-epic an",
+      "category": "platform",
+      "keywords": [
+        "paseo-orchestrate",
+        "paseo",
+        "daemon",
+        "frontend",
+        "orchestrate",
+        "multi-agent",
+        "coordinate"
+      ],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "projects/SKILL.md",
+      "label": "Project dashboard. Subcommands: /projects (overview of all active work), /projec",
+      "category": "dev",
+      "keywords": ["projects", "project", "digest", "status", "sweep", "health"],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "review/SKILL.md",
+      "label": "Review staged or recent changes for bugs, security issues, and convention violat",
+      "category": "dev",
+      "keywords": ["review", "code review", "pr", "diff", "staged"],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "start-stack/SKILL.md",
+      "label": "Start the Soifer Platform stack (9Router, CrewAI, Backend, Paseo daemon + Expo M",
+      "category": "dev",
+      "keywords": ["start-stack", "start", "stack", "services", "health", "soifer"],
+      "extensions": [],
+      "paths": []
+    },
+    {
+      "file": "test/SKILL.md",
+      "label": "Run Soifer Backend tests with coverage, typecheck, and lint. Reports failures wi",
+      "category": "dev",
+      "keywords": ["test", "vitest", "coverage", "typecheck", "lint"],
+      "extensions": [],
+      "paths": []
+    }
+  ]
+}
