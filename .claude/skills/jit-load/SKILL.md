@@ -1,6 +1,6 @@
 ---
 name: jit-load
-description: Load common MCP tool bundles in one shot via ToolSearch. Reference card for the typical "load secrets stack" / "load db stack" patterns so you don't type long select: queries each session.
+description: 'Load common MCP tool bundles in one shot via ToolSearch. Reference card for the typical "load secrets stack" / "load db stack" patterns so you don''t type long select: queries each session.'
 ---
 
 # JIT MCP Loader Reference
