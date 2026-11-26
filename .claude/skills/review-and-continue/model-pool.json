@@ -1,0 +1,37 @@
+{
+  "_about": "Cheap-model pool for review-and-continue (MODELS.md, Cheap tier). pricingId is the OpenRouter id used only to compare prices. palModel is the 9router route that PAL chat and the clink client send requests to. route names every party that receives the payload, which is what P0 consent is asked for. clink is the read-only PAL clink client for that model. Set flatRate to true for a route billed by subscription. scripts/model-pick.mjs ranks this list and never adds a model that is not here.",
+  "pool": [
+    {
+      "label": "GLM 5.3",
+      "vendor": "Zhipu",
+      "route": "9router, then OpenRouter, then whichever host OpenRouter picks for each request (seen 2026-10-20: Morph); not necessarily Zhipu",
+      "pricingId": "z-ai/glm-5.3",
+      "palModel": "openrouter/z-ai/glm-5.3",
+      "clink": "claude-glm"
+    },
+    {
+      "label": "Kimi K3",
+      "vendor": "Moonshot",
+      "route": "9router, then OpenRouter, then whichever host OpenRouter picks for each request (seen 2026-10-20: InferenceNet); not necessarily Moonshot",
+      "pricingId": "moonshotai/kimi-k3",
+      "palModel": "openrouter/moonshotai/kimi-k3",
+      "clink": "claude-kimi"
+    },
+    {
+      "label": "MiMo V2.6 Pro",
+      "vendor": "Xiaomi",
+      "route": "9router, then OpenRouter, then whichever host OpenRouter picks for each request (seen 2026-10-20: Novita); not necessarily Xiaomi",
+      "pricingId": "xiaomi/mimo-v2.6-pro",
+      "palModel": "openrouter/xiaomi/mimo-v2.6-pro",
+      "clink": "claude-mimo"
+    },
+    {
+      "label": "Qwen3.8 Max",
+      "vendor": "Alibaba",
+      "route": "9router, then TokenRouter, then the host TokenRouter uses (not reported in its response); not necessarily Alibaba",
+      "pricingId": "qwen/qwen3.8-max-0902",
+      "palModel": "tokenrouter/qwen/qwen3.8-max",
+      "clink": "claude-qwen"
+    }
+  ]
+}

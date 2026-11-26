@@ -1,0 +1,3 @@
+interface:
+  display_name: 'Review and Continue'
+  short_description: 'Verify a project baseline, fix drift, then hand off to /goal'

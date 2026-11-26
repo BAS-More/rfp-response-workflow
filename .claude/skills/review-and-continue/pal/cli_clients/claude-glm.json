@@ -1,0 +1,37 @@
+{
+  "name": "claude-glm",
+  "runner": "claude",
+  "command": "claude",
+  "additional_args": [
+    "--model",
+    "openrouter/z-ai/glm-5.3",
+    "--tools",
+    "Read",
+    "Grep",
+    "Glob",
+    "--permission-mode",
+    "dontAsk",
+    "--strict-mcp-config",
+    "--mcp-config",
+    "{\"mcpServers\":{}}",
+    "--disallowedTools",
+    "Read(~/**)",
+    "Read(**/.env)",
+    "Read(**/.env.*)",
+    "Read(**/.git/config)",
+    "Read(**/*.pem)",
+    "Read(**/*.key)",
+    "Read(**/id_rsa*)",
+    "Read(**/id_ed25519*)"
+  ],
+  "env": { "CLAUDE_CODE_ENTRYPOINT": "sdk-cli" },
+  "timeout_seconds": 600,
+  "roles": {
+    "default": { "prompt_path": "systemprompts/clink/default.txt", "role_args": [] },
+    "planner": { "prompt_path": "systemprompts/clink/default_planner.txt", "role_args": [] },
+    "codereviewer": {
+      "prompt_path": "systemprompts/clink/default_codereviewer.txt",
+      "role_args": []
+    }
+  }
+}
